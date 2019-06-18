@@ -1,0 +1,11 @@
+body {
+    background-image: url(../images/pattern3.png);
+}
+#nav {
+    background-color: #6d9699;
+    border-bottom: 4px solid #999372;
+}
+#form {
+    background-color: #eeeeee;
+    border:3px solid #ffe0a3;
+}
