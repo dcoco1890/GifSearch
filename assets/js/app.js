@@ -1,17 +1,35 @@
 var gifs = ["Mad Men", "The West Wing", "Black Mirror", "Parks and Rec"];
-
+var count = 0;
 
 function generate (){
 
-    $('#gif-but').empty();
+    var user = $('#u-sel').val().trim();
+
+    // add users text from text input on page to gifs array ONLY if it's not blank 
+    // or the  thing they just entered. Technically the same value can be added twice,
+    // but this should stop the same thing from being entered again and again.
+
+    if(user !== "" && user !== gifs[count-1]){gifs.push(user)};  
+
+    // empties the buttons div and creates new buttons
+
+    count = 0;
+    $('#gif-button').empty();
     for(var i = 0; i < gifs.length; i++){
-        var x = $('<button id="form">').text(gifs[i]);
+        var x = $('<button id="g-but">').text(gifs[i]);
 
-        $('#gif-but').prepend(x);
+        $('#gif-button').prepend(x);
+        count++;
     }
-
 }
 
-$('#gif-button').on("click", generate);
+function gifPlacer() {
+    var picked = $(this).text();
+    //ajax
+    
+}
 
-// generate();
+$(document).on("click", "#gen", generate);
+$(document).on("click", "#g-but", gifPlacer);
+
+generate();
