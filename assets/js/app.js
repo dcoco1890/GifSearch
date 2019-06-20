@@ -27,7 +27,7 @@ function gifPlacer() {
     var picked = $(this).text().toLowerCase().replace(/ /g, "+").trim();
     console.log('picked :', picked);
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + picked + "&api_key=isoPkQRkKFIvW3X6QPNd6mjDb1PQDDxc";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + picked + "&api_key=isoPkQRkKFIvW3X6QPNd6mjDb1PQDDxc";
     //ajax
     $.ajax({
         url: queryURL,
