@@ -5,7 +5,11 @@ body {
     background-color: #6d9699;
     border-bottom: 4px solid #999372;
 }
-#form {
+#form, #left, #right {
     background-color: #eeeeee;
     border:3px solid #ffe0a3;
+}
+
+#gifs{
+    background-color: #b4b69f;
 }
