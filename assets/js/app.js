@@ -28,7 +28,7 @@ function generate() {
     count = 0;
     $('#gif-button').empty();
     for (var i = 0; i < gifs.length; i++) {
-        var x = $('<button id="g-but">').text(gifs[i]);
+        var x = $('<button id="g-but" class="btn btn-sm btn-outline-dark">').text(gifs[i]);
 
         $('#gif-button').prepend(x);
         count++;

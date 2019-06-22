@@ -1,62 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar fixed-top navbar-dark shadow-lg" id="nav">
             <h2 class="navbar-brand">GIPHY search</h2>
         </nav>
     </header>
-<br><br><br><br>
-<main>
-    <div class="container-fluid">
-        <div class="row mx-2">
-            <div class="col-md-9">
-
-                <div class="row">
-                    <div class="col" id="form">
-                        <h1>search form</h1>
-                        <button id="gen" class="btn btn-lg">search button</button>
-                        <input type="text" id="u-sel">
+    <br><br><br><br>
+    <main>
+        <div class="container-fluid">
+            <div class="row mx-2">
+                <!-- this is the button area, where users click to put gifs on the screen -->
+                <div class="col-md-6">
+                    <div class="d-flex flex-wrap flex-row m-1" id="gif-button">
+                        <button type="submit" id="g-but">GG</button>
                     </div>
                 </div>
-                <br>
-              
-            </div>
 
-            <div class="col-md-3">
-              
-                        <div class="d-flex flex-column m-1" id="gif-button">
-                            <button type="submit" id="g-but">GG</button>
-                        </div>
-                     
-                
-            </div>
-           
-           
-        </div>
-        <br>
-        <div class="row mx-1">
-           
-                    <div class="col-md-6">
-                        <div class="d-flex flex-wrap flex-row" id="gifs">
-
-
-
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col" id="form">
+                            <h1>search form</h1>
+                            <button id="gen" class="btn btn-primary btn-md">search button</button>
+                            <input type="text" id="u-sel">
                         </div>
                     </div>
-              
+                </div>
+
+
+            </div>
+            <br>
+
+            <div class="row mx-1">
+
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap flex-row" id="gifs">
+                        <!-- This is where the gifs go -->
+                    </div>
+                </div>
+
+            </div>
+
         </div>
+    </main>
 
-    </div>
-</main>
-
-<script src="../GifSearch/assets/js/app.js"></script>
+    <script src="../GifSearch/assets/js/app.js"></script>
 </body>
+
 </html>
