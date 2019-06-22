@@ -37,6 +37,13 @@ function generate() {
 
 function gifPlacer() {
 
+    // I know the bonus said to not to overwrite gifs and just add 10 to the page,
+    // but that seems silly. I could write some functionality that would stop after
+    // a certain amount of gifs are on the page, but I think emptying it and putting 
+    // new ones looks nicer.
+    // $('#left').empty();
+    // $('#right').empty();
+
     var picked = $(this).text().toLowerCase().replace(/ /g, "+").trim();
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + picked + "&limit=10&api_key=isoPkQRkKFIvW3X6QPNd6mjDb1PQDDxc";
     
@@ -47,14 +54,11 @@ function gifPlacer() {
         console.log(response);
 
         for(var i = 0; i < 10; i++){
-            var g = $('<div class="p-1 m-2">');
-            g.html(`<img src="${response.data[i].images.downsized_large.url}">`);
-            if(i < 5){
-                $('#left').append(g);
-            }
-            else{
-                $('#right').append(g);
-            }
+            var g = $('<div class="m-2" id="gifs">');
+            g.html(`<img src="${response.data[i].images["fixed_width"].url}">`);
+            
+            $('#gifs').append(g);
+           
 
         }
         
