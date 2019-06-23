@@ -13,6 +13,7 @@ function generate() {
     user = $('#u-sel').val().trim();
     nUser = user.split(' ');
     l = nUser.length;
+    $('#u-sel').val('');
 
     // send it to the CAPITALIZER
     user = capitalWords(nUser, l);
@@ -28,11 +29,13 @@ function generate() {
     count = 0;
     $('#gif-button').empty();
     for (var i = 0; i < gifs.length; i++) {
-        var x = $('<button id="g-but" class="btn btn-sm btn-outline-dark">').text(gifs[i]);
+        var x = $('<button id="g-but" class="btn btn-lg btn-outline-dark m-1">').text(gifs[i]);
 
         $('#gif-button').prepend(x);
         count++;
     }
+
+    
 }
 
 function gifPlacer() {
@@ -52,20 +55,19 @@ function gifPlacer() {
         method: "GET",
     }).then(function (response) {
         console.log(response);
-
+        $('#gifs').addClass("gifs_border");
         for(var i = 0; i < 10; i++){
-            var g = $('<div class="m-2" id="gifs">');
-            g.html(`<img src="${response.data[i].images["fixed_width"].url}">`);
-            
+            var g = $('<div class="d-flex flex-column justify-content-between m-2 p-3 shadow-lg rounded text-center" id="gifs">');
+            g.html(`<img src="${response.data[i].images["fixed_width"].url}" still="${response.data[i].images["fixed_width_still"].url}" mov="${response.data[i].images["fixed_width"].url}" state="m" id="click-pic">`);
+            var rating = $('<p>');
+            rating.text(`Rating: ${response.data[i].rating}`);
+            g.append(rating);
             $('#gifs').append(g);
-           
-
         }
         
 
     });
 }
-
 
 // I don't want to admit how long this took to figure out, but it took 
 // a VERY LONG TIME
@@ -79,7 +81,7 @@ function capitalWords(arr, len) {
         // the first letter capitalized
         const re = new RegExp(/^(\w)/);
         var x = arr[i].replace(re, function (match) {
-            return match.toUpperCase();
+            return match.toUpperCase();          
         });
         nW.push(x);
 
@@ -87,11 +89,26 @@ function capitalWords(arr, len) {
     //new capword is all the new capitalized words that were added to the array joined with a space
     var capWord = nW.join(" ")
     return capWord;
+}
+
+
+function imgSwap (){
+    var sit = $(this).attr("state");
+    // console.log('sit :', sit);
+    if(sit === "m"){
+        $(this).attr("src", $(this).attr("still"));
+        $(this).attr("state", "s");
+    }
+    else{
+        $(this).attr("src", $(this).attr("mov"));
+        $(this).attr("state", "m");
+    }
 
 
 
 }
 
+$(document).on("click", "#click-pic", imgSwap);
 $(document).on("click", "#gen", generate);
 $(document).on("click", "#g-but", gifPlacer);
 
