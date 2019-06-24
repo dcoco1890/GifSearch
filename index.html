@@ -31,8 +31,12 @@
                     <div class="row">
                         <div class="col rounded-lg shadow-lg m-1 p-2 text-center" id="gif-button">
                             <h1>Add a Show</h1>
-                            <button id="gen" class="btn btn-primary btn-md">Click to add</button>
-                            <input type="text" id="u-sel">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                        <button id="gen" class="btn btn-outline-secondary btn-md">Click to add</button>
+                                </div>
+                                <input class="form-control input-lg" type="text" id="u-sel">
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -43,8 +47,8 @@
 
             <div class="row mx-1">
 
-                <div class="col-md-8">
-                    <div class="d-flex flex-wrap flex-row" id="gifs">
+                <div class="col-md-10">
+                    <div class="d-flex flex-wrap justify-content-around flex-row" id="gifs">
                         <!-- This is where the gifs go -->
                     </div>
                 </div>
