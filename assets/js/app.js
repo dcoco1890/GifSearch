@@ -60,7 +60,10 @@ function gifPlacer() {
             var g = $('<div class="d-flex flex-column justify-content-between m-2 p-3 shadow-lg rounded text-center" id="gifs">');
             g.html(`<img src="${response.data[i].images["fixed_width"].url}" still="${response.data[i].images["fixed_width_still"].url}" mov="${response.data[i].images["fixed_width"].url}" state="m" id="click-pic">`);
             var rating = $('<p>');
+            var linker = $('<p>');
+            linker.html(`<a href="${response.data[i].bitly_url}" style="color: #63707e">Direct Link</a>`);
             rating.text(`Rating: ${response.data[i].rating}`);
+            rating.append(linker);
             g.append(rating);
             $('#gifs').append(g);
         }
