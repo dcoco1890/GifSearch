@@ -17,8 +17,8 @@ function generate() {
 
     // send it to the CAPITALIZER
     user = capitalWords(nUser, l);
-   
-  
+
+
 
     // add users text from text input on page to gifs array ONLY if it's not blank 
     // AND it's not included in the array already
@@ -29,13 +29,13 @@ function generate() {
     count = 0;
     $('#gif-button').empty();
     for (var i = 0; i < gifs.length; i++) {
-        var x = $('<button id="g-but" class="btn btn-lg btn-outline-dark m-1">').text(gifs[i]);
+        var x = $('<button id="g-but" class="btn btn-md btn-outline-dark m-1">').text(gifs[i]);
 
         $('#gif-button').prepend(x);
         count++;
     }
 
-    
+
 }
 
 function gifPlacer() {
@@ -49,14 +49,14 @@ function gifPlacer() {
 
     var picked = $(this).text().toLowerCase().replace(/ /g, "+").trim();
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + picked + "&limit=10&api_key=isoPkQRkKFIvW3X6QPNd6mjDb1PQDDxc";
-    
+
     $.ajax({
         url: queryURL,
         method: "GET",
-    }).then(function (response) {
+    }).then(function(response) {
         console.log(response);
         $('#gifs').addClass("gifs_border");
-        for(var i = 0; i < 10; i++){
+        for (var i = 0; i < 10; i++) {
             var g = $('<div class="d-flex flex-column justify-content-between m-2 p-3 shadow-lg rounded text-center" id="gifs">');
             g.html(`<img src="${response.data[i].images["fixed_width"].url}" still="${response.data[i].images["fixed_width_still"].url}" mov="${response.data[i].images["fixed_width"].url}" state="m" id="click-pic">`);
             var rating = $('<p>');
@@ -67,7 +67,7 @@ function gifPlacer() {
             g.append(rating);
             $('#gifs').append(g);
         }
-        
+
 
     });
 }
@@ -83,8 +83,8 @@ function capitalWords(arr, len) {
         // regex matches the any first letter of word. this little function returns the same word but with 
         // the first letter capitalized
         const re = new RegExp(/^(\w)/);
-        var x = arr[i].replace(re, function (match) {
-            return match.toUpperCase();          
+        var x = arr[i].replace(re, function(match) {
+            return match.toUpperCase();
         });
         nW.push(x);
 
@@ -95,14 +95,13 @@ function capitalWords(arr, len) {
 }
 
 
-function imgSwap (){
+function imgSwap() {
     var sit = $(this).attr("state");
     // console.log('sit :', sit);
-    if(sit === "m"){
+    if (sit === "m") {
         $(this).attr("src", $(this).attr("still"));
         $(this).attr("state", "s");
-    }
-    else{
+    } else {
         $(this).attr("src", $(this).attr("mov"));
         $(this).attr("state", "m");
     }

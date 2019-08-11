@@ -1,28 +1,26 @@
 body {
     background-image: url(../images/pattern3.png);
 }
+
 #nav {
     background-color: #63707e;
     border-bottom: 4px solid #93b5b3;
 }
 
-#gifs{
+#gifs {
     background-color: #c8dad3;
-    
-    
 }
 
 #gif-button {
     background-color: #c8dad3;
-    border:3px solid #93b5b3;
+    border: 3px solid #93b5b3;
 }
 
 .gifs_border {
     background-color: #b4b69f;
-    border:3px solid #93b5b3;
+    border: 3px solid #93b5b3;
 }
 
-#click-pic{
-    border:3px solid #93b5b3;
+#click-pic {
+    border: 3px solid #93b5b3;
 }
-
